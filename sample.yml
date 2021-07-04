@@ -1,0 +1,15 @@
+---
+ - hosts: localhost
+   become: yes
+   name:   Ensure NTP is configured 
+
+   tasks:
+     - name: Ensure NTP is installed 
+       yum:
+         name: chrony
+         state: present
+     - name: Ensure NTP is started and enabled at boot
+       service:
+         name: chronyd
+         state: started
+         enabled: yes
