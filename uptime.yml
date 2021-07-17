@@ -1,0 +1,11 @@
+---
+ - name: Print the server uptime
+   hosts: localhost
+   tasks:
+     - name: run uptime command
+       command: uname -a 
+       register: svr_uptime
+
+     - name: show the service uptime
+       debug:
+         msg: Server uptime is {{ svr_uptime.stdout }}
