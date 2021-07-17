@@ -1,0 +1,19 @@
+---
+ - name: Check the ervice status 
+   hosts: localhost
+   gather_facts: false
+   tasks:
+     - name: check the service 
+       shell: ps -ef | grep -v grep | grep crond
+       changed_when: false
+       register: output
+       ignore_errors: true
+
+     - name: display the output
+       debug:
+         msg: " crond is not found "
+       when: output.rc == 1
+     - name : Display the output 
+       debug:
+         msg: "Crond is running" 
+       when: output.rc == 0 
