@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   name: Demonstrate the file copy 
+   tasks:
+    - name: copy a file
+      copy:
+        src: /home/ansible/myfile
+        dest: /tmp/myfile
+        owner: ansible
+        group: ansible
+        mode: 0644
+        backup: yes
+    - name: copy using content
+      copy:
+        content: '### This is a sample file ###'
+        dest: /tmp/new.txt
