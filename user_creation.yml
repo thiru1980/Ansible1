@@ -1,0 +1,17 @@
+---
+ - name: Demonstrate the loop 
+   hosts: localhost
+   vars:
+     developers:
+       - username: dev1
+         pass:  pass1
+       - username: dev2
+         pass: pass2
+       - username: dev3
+         pass: pass3
+   tasks:
+     - name: Create users
+       user:
+         name: "{{ item.username }}"
+         password: "{{ item.pass | password_hash ('sha512') }}"
+       loop: "{{ developers }}"
