@@ -1,6 +1,6 @@
 ---
  - name: Check the service status 
-   hosts: localhost
+   hosts: all
    gather_facts: false
    tasks:
      - name: check the {{ service_name }} service 
