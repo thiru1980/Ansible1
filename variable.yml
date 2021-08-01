@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   name:  file create manipulation
+  
+   tasks: 
+   - name: file state  
+     file:
+       dest: /tmp/file
+       state: '{{file_state}}' 
