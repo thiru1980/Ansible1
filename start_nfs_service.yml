@@ -1,6 +1,6 @@
 ---
  - name: Start the nfs service
-   hosts: localhost 
+   hosts: all
    become: yes
    tasks:
      - name: start nfs service
