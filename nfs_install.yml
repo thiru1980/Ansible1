@@ -1,7 +1,7 @@
 ---
  - name: Install nfs packages
    become: yes
-   hosts: localhost
+   hosts: all
    tasks:
      - name: Install nfs-uils packages
        yum:
