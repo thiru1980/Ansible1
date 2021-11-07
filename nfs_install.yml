@@ -1,0 +1,13 @@
+---
+ - name: Install nfs packages
+   become: yes
+   hosts: localhost
+   tasks:
+     - name: Install nfs-uils packages
+       yum:
+         name: nfs-utils
+         state: present
+     - name: Start the nfs-server
+       service:
+         name: nfs-server
+         state: started
