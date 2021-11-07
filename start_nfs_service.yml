@@ -1,0 +1,9 @@
+---
+ - name: Start the nfs service
+   hosts: localhost 
+   become: yes
+   tasks:
+     - name: start nfs service
+       service:
+         name: nfs-server
+         state: started 
